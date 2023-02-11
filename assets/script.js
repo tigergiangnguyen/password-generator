@@ -5,24 +5,24 @@ var upper = lower.toUpperCase ()
 var number = "1234567890"
 var special = "?!@#$%^&*"
 var total = ""
-console.log(lower);
-console.log(upper);
 // Write password to the #password input
 function generatePassword() {
-// ask user for password length
+// Ask user for password length
 var passwordLength = parseInt(window.prompt("Please enter your desired length "));
 console.log(passwordLength);
-// check length of password is not less than 8
+// Check length of password is not less than 8
 if (passwordLength < 8) {
   alert ("Please select a number greater than 8");
   return "Please try again"
 }
 
+// Check length of password is not more than 128
 if (passwordLength > 128) {
   alert ("Please select a number less than 128");
   return "Please try again"
 }
 
+// Check password length is a type of number
 if (isNaN (passwordLength)) {
   alert ("Please select a valid number");
   return "Please try again"
@@ -50,17 +50,15 @@ if (total.length === 0) {
 }
 
 var totalarr = total.split("")
-console.log(totalarr);
 var password = ""
-for (var i=0; i < passwordLength; i++) {
+for (var i = 0; i < passwordLength; i++) {
   var index = Math.floor(Math.random() * totalarr.length)
   var character = totalarr[index]
-  password = password (character)
+  password += character;
 }
-// check length of password is not more than 128
-// check password length is a type of number
-  return "testing password";
+  return password;
 }
+// Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
